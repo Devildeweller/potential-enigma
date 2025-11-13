@@ -18,7 +18,7 @@ using namespace std;
 #define f first
 #define s second
 #define mp make_pair
-//#define int long long
+#define int long long
  
 using vi = vector<int>;
 using pi = pair<int,int>;
@@ -39,13 +39,17 @@ void solve(){
     vi a(n); read(a);
 
     int cnt=0;
-    for(int i=0;i<n-1;i++){
-        if(a[i]==a[i+1]){
+    map<int,int> mp;
+    int max=2e9;
+    for(int i=n-1;i>=0;i--){
+        mp[a[i]+max]++;
+        debug(a,a[i]+max);
+        if(mp[a[i]+max]>1){
             cnt++;
-            i++;
+            max+=1e9;
+            mp[a[i]+max]++;
         }
     }
-
     cout << cnt;
 }
  
