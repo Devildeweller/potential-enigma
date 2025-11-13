@@ -39,17 +39,6 @@ void solve(){
     vi a(n); read(a);
 
     int cnt=0;
-    map<int,int> mp;
-    int max=2e9;
-    for(int i=n-1;i>=0;i--){
-        mp[a[i]+max]++;
-        debug(a,a[i]+max);
-        if(mp[a[i]+max]>1){
-            cnt++;
-            max+=1e9;
-            mp[a[i]+max]++;
-        }
-    }
     cout << cnt;
 }
  
